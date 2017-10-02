@@ -20,11 +20,16 @@ define('JETPACK_DEV_DEBUG', true);
 define('THEMOSIS_CHARSET', 'UTF-8');
 
 // Development
-define('SAVEQUERIES', true);
-define('WP_DEBUG', true);
-define('WP_DEBUG_DISPLAY', true);
-define('SCRIPT_DEBUG', true);
+define('SAVEQUERIES', getenv('DEBUG_ENABLED'));
+define('WP_DEBUG', getenv('DEBUG_ENABLED'));
+define('WP_DEBUG_DISPLAY', getenv('DEBUG_ENABLED'));
+define('SCRIPT_DEBUG', getenv('DEBUG_ENABLED'));
 
 // Themosis framework
-define('THEMOSIS_ERROR', true);
-define('BS', true);
+define('THEMOSIS_ERROR', getenv('DEBUG_ENABLED'));
+define('BS', getenv('DEBUG_ENABLED'));
+
+if (!WP_DEBUG) {
+    ini_set('display_errors', 'Off');
+    ini_set('error_reporting', E_ALL);
+}

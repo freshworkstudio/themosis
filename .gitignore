@@ -1,9 +1,31 @@
+### Environment Credentials
+.env
+
+### NPM 
+node_modules
+mix-manifest.json
+
+### Themes
+/htdocs/content/themes/*
+!/htdocs/content/themes/meat-theme
+/htdocs/content/themes/meat-theme/dist
+
+### Plugins
+
+/htdocs/content/plugins/*
+!/htdocs/content/plugins/advanced-custom-fields-pro
+
+
+### Cache
+htdocs/content/cache/
+htdocs/content/wp-cache-config.php
+htdocs/content/advanced-cache.php
+
 ### Miscellaneous
 .DS_Store
 Thumbs.db
 
 ### Composer
-composer.lock
 vendor/
 
 ### IDE
@@ -16,12 +38,6 @@ cs_fixer*
 /htdocs/cms/*
 !/htdocs/cms/.gitkeep
 /htdocs/content/mu-plugins/themosis-framework/
-/htdocs/content/themes/themosis-theme/
 /htdocs/content/uploads/
 /htdocs/content/upgrade/
 
-
-### Environment Credentials
-.env
-.env.*
-!.env.local

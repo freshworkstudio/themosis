@@ -1,5 +1,7 @@
 <?php
 
+require __DIR__ . '/helpers.php';
+
 /*----------------------------------------------------*/
 // Paths
 /*----------------------------------------------------*/
@@ -32,6 +34,7 @@ $location = new \Thms\Config\Environment($locations);
 $location = $location->which(gethostname());
 $file = empty($location) ? '.env' : ".env.{$location}";
 
+
 /*
  * Load environment
  */
@@ -39,6 +42,10 @@ $env = new \Dotenv\Dotenv($rootPath, $file);
 $env->load();
 $env->required(['DB_NAME', 'DB_USER', 'DB_PASSWORD', 'DB_HOST', 'WP_HOME', 'WP_SITEURL']);
 
+/*
+ * Define cache constants
+ */
+define('WP_CACHE', getenv('CACHE') || getenv('ENVIRONMENT') == 'local');
 /*
  * Load environment configuration
  */
@@ -71,3 +78,19 @@ define('THEMOSIS_STORAGE', $rootPath.DS.'storage');
 define('CONTENT_DIR', 'content');
 define('WP_CONTENT_DIR', $webrootPath.DS.CONTENT_DIR);
 define('WP_CONTENT_URL', WP_HOME.'/'.CONTENT_DIR);
+
+/*----------------------------------------------------*/
+// Balance Loader fix
+/*----------------------------------------------------*/
+if (strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') !== false) {
+    $_SERVER['HTTPS']='on';
+}
+
+if (getenv('REDIRECT_HTTPS') == '1') {
+    if (empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] == "off") {
+        $redirect = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+        header('HTTP/1.1 301 Moved Permanently');
+        header('Location: ' . $redirect);
+        exit();
+    }
+}
