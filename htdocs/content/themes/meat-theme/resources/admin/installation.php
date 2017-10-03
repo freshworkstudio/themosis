@@ -1,11 +1,7 @@
 <?php
 
-add_action(/**
- *
- */
-    'after_switch_theme', function() {
+add_action('after_switch_theme', function() {
 	(new MeatInstaller)->install();
-
 });
 
 /**
@@ -25,8 +21,8 @@ class MeatInstaller {
             ->deleteDemoComments()
             ->setOptions()
             ->addSaltsToEnv()
-            ->addInstalledFlagToEnv()
             ->activatePlugins()
+            ->addInstalledFlagToEnv()
             ->addAdminMessage('Tema MEAT instalado correctamente. Se configuró correctamente y se agregó flag MEAT_INSTALLED en archivo  <code>.env</code>');
 	}
 

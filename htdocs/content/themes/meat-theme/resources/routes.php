@@ -1,5 +1,9 @@
 <?php
 
+if (env('ENVIRONMENT') != 'production') {
+    flush_rewrite_rules();
+}
+
 /**
  * Define your routes and which views to display
  * depending of the query.
@@ -8,10 +12,5 @@
  * http://codex.wordpress.org/Conditional_Tags
  *
  */
-
-// flush_rewrite_rules();
-
-Route::get('home', function()
-{
-    return view('welcome');
-});
+Route::get('home', 'HomeController@index');
+Route::get('404', 'ErrorsController@page404');

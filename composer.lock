@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a6cd72a6ca791262597c0cafbe69aed0",
+    "content-hash": "0c587597a7af96b4dad1076f8221b9fa",
     "packages": [
         {
             "name": "composer/installers",
@@ -1802,6 +1802,26 @@
             "time": "2016-09-01T10:05:43+00:00"
         },
         {
+            "name": "wpackagist-plugin/minify-html-markup",
+            "version": "1.98",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/minify-html-markup/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/minify-html-markup.zip?timestamp=1501683334",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/minify-html-markup/"
+        },
+        {
             "name": "wpackagist-plugin/wordpress-seo",
             "version": "5.5.1",
             "source": {
@@ -1812,7 +1832,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/wordpress-seo.5.5.1.zip",
-                "reference": null,
+                "reference": "tags/5.5.1",
                 "shasum": null
             },
             "require": {
