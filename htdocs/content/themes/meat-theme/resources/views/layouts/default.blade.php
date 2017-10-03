@@ -10,7 +10,7 @@
     <link href="{{ themosis_theme_assets() }}/images/favicon.png" rel="shortcut icon" />
     <meta name="description" content="">
     @include('helpers.theme-color')
-    @wp_head.e
+    @wp_head
 </head>
 <body class="body">
     @include('helpers.gtm-body')
