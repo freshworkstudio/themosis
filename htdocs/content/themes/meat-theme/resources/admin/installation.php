@@ -1,13 +1,22 @@
 <?php
 
-add_action('after_switch_theme', function() {
+add_action(/**
+ *
+ */
+    'after_switch_theme', function() {
 	(new MeatInstaller)->install();
 
 });
 
+/**
+ * Class MeatInstaller
+ */
 class MeatInstaller {
 
-	public function install() {
+    /**
+     *
+     */
+    public function install() {
 		if ($this->isInstalled()) {
             $this->addAdminMessage('Se encontró la variable MEAT_INSTALLED en el <code>.env</code> por lo que no se realizaron configuraciones adicionales', null, 'warning');
 			return;
@@ -17,14 +26,21 @@ class MeatInstaller {
             ->setOptions()
             ->addSaltsToEnv()
             ->addInstalledFlagToEnv()
+            ->activatePlugins()
             ->addAdminMessage('Tema MEAT instalado correctamente. Se configuró correctamente y se agregó flag MEAT_INSTALLED en archivo  <code>.env</code>');
 	}
 
-	public function isInstalled() {
+    /**
+     * @return array|false|string
+     */
+    public function isInstalled() {
 		return getenv('MEAT_INSTALLED');
 	}
 
-	function addSaltsToEnv()
+    /**
+     * @return $this
+     */
+    function addSaltsToEnv()
 	{
 	    $secret_keys = wp_remote_get('https://api.wordpress.org/secret-key/1.1/salt/');
 	    $secret_keys = explode("\n", wp_remote_retrieve_body($secret_keys));
@@ -56,11 +72,17 @@ class MeatInstaller {
         return $this;
 	}
 
-	function addInstalledFlagToEnv() {
+    /**
+     * @return $this
+     */
+    function addInstalledFlagToEnv() {
 		file_put_contents(ABSPATH . '../../.env', "\nMEAT_INSTALLED=1", FILE_APPEND);
 
         return $this;
 	}
+    /**
+     * @return $this
+     */
     private function setOptions()
     {
         // set the options to change
@@ -87,6 +109,9 @@ class MeatInstaller {
 
         return $this;
     }
+    /**
+     * @return $this
+     */
     private function deleteDemoPosts()
     {
         wp_delete_post( 1, TRUE );
@@ -94,6 +119,9 @@ class MeatInstaller {
 
         return $this;
     }
+    /**
+     * @return $this
+     */
     private function deleteDemoComments()
     {
         wp_delete_comment( 1 );
@@ -101,6 +129,12 @@ class MeatInstaller {
         return $this;
     }
 
+    /**
+     * @param $message
+     * @param string $domain
+     * @param string $type
+     * @return $this
+     */
     private function addAdminMessage($message, $domain = 'meat-theme', $type = 'success')
     {
         ?>
@@ -108,6 +142,21 @@ class MeatInstaller {
             <p><?php _e( $message , $domain ); ?></p>
         </div>
         <?php
+
+        return $this;
+    }
+    /**
+     * @return $this
+     */
+    private function activatePlugins()
+    {
+        // we need to include the file below because the activate_plugin() function isn't normally defined in the front-end
+        require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+        // activate pre-bundled plugins
+        activate_plugin("wp-sanitize-file-name-plus/wp-sanitize-file-name-plus.php");
+        //activate_plugin( 'wp-super-cache/wp-cache.php' );
+        activate_plugin( 'wordpress-seo/wp-seo.php' );
+        activate_plugin( 'advanced-custom-fields-pro/acf.php' );
 
         return $this;
     }
