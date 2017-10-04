@@ -21,6 +21,8 @@
     </div>
 
     @include('components.footer')
+
+    @wp_footer
     @include('helpers.google-maps-script')
     @stack('scripts')
 </body>
