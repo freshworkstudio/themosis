@@ -19,4 +19,4 @@ window.Vue = require('vue');
 */
 
 window.slick = require('slick-carousel');
-window.swal = require('sweetalert')
+window.swal = require('sweetalert');

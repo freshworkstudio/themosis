@@ -43,10 +43,6 @@ $env->load();
 $env->required(['DB_NAME', 'DB_USER', 'DB_PASSWORD', 'DB_HOST', 'WP_HOME', 'WP_SITEURL']);
 
 /*
- * Define cache constants
- */
-define('WP_CACHE', getenv('CACHE') || getenv('ENVIRONMENT') == 'local');
-/*
  * Load environment configuration
  */
 // If .env file selected, default its location to local configuration.
