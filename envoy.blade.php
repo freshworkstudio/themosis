@@ -64,7 +64,7 @@ if [ -f {{ $site_name }}.sql.gz ]; then
 fi
 
 echo "Downloading database backup from server..."
-scp {{ $ssh_connection }}:{{ $server_base_path }}/{{ $site_name }}.sql.gz ./
+rsync -avzP {{ $ssh_connection }}:{{ $server_base_path }}/{{ $site_name }}.sql.gz ./
 echo "Database dump downloaded";
 gzip -d {{ $site_name }}.sql.gz
 
