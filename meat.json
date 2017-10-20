@@ -3,16 +3,13 @@
   "composer": true,
   "npm": true,
   "bower": false,
-  "fetch_database_from_server": true,
   "dotenv": "auto",
   "envoy": "auto",
-  "valet": "auto",
-  "artisan_migrate": "auto",
+  "artisan_migrate": false,
   "scripts": {
     "pre-install": null,
     "post-install": null
   },
-  "sync_folders": "auto",
   "assets": {
     "driver": "mix"
   }
