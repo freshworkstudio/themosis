@@ -4,14 +4,14 @@
 // Local config
 /*----------------------------------------------------*/
 // Database
-define('DB_NAME', getenv('DB_NAME'));
-define('DB_USER', getenv('DB_USER'));
-define('DB_PASSWORD', getenv('DB_PASSWORD'));
-define('DB_HOST', getenv('DB_HOST') ? getenv('DB_HOST') : 'localhost');
+define('DB_NAME', env('DB_NAME'));
+define('DB_USER', env('DB_USER'));
+define('DB_PASSWORD', env('DB_PASSWORD'));
+define('DB_HOST', env('DB_HOST', 'localhost'));
 
 // WordPress URLs
-define('WP_HOME', getenv('WP_HOME'));
-define('WP_SITEURL', getenv('WP_SITEURL'));
+define('WP_HOME', env('WP_HOME'));
+define('WP_SITEURL', env('WP_SITEURL'));
 
 // Jetpack
 define('JETPACK_DEV_DEBUG', true);
@@ -20,14 +20,14 @@ define('JETPACK_DEV_DEBUG', true);
 define('THEMOSIS_CHARSET', 'UTF-8');
 
 // Development
-define('SAVEQUERIES', getenv('DEBUG_ENABLED'));
-define('WP_DEBUG', getenv('DEBUG_ENABLED'));
-define('WP_DEBUG_DISPLAY', getenv('DEBUG_ENABLED'));
-define('SCRIPT_DEBUG', getenv('DEBUG_ENABLED'));
+define('SAVEQUERIES', env('DEBUG'));
+define('WP_DEBUG', env('DEBUG'));
+define('WP_DEBUG_DISPLAY', env('DEBUG'));
+define('SCRIPT_DEBUG', env('DEBUG'));
 
 // Themosis framework
-define('THEMOSIS_ERROR', getenv('DEBUG_ENABLED'));
-define('BS', getenv('DEBUG_ENABLED'));
+define('THEMOSIS_ERROR', env('DEBUG'));
+define('BS', env('DEBUG'));
 
 if (!WP_DEBUG) {
     ini_set('display_errors', 'Off');
