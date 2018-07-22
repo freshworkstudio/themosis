@@ -1,32 +1,22 @@
 # Meat Project
-by [Digital Meat](http://meat.cl/)
+by [Freshwork Studio](http://freshworkstudio.com/)
 
 - [Instalación](#Installation)
 - [Vistas del tema](#views)
 - [Ambientes](#environments)
 
 <a name="installation"></a>
-## Installation 
-You can install the project-name using `meat-cli`
-```bash
-composer global require meat/meat-cli
-``` 
-```bash
-cd ~/code/
-meat install project-name-code
-```
+## Installation  
 
-### Manual installation
 #### Development / Local Environment
 ```bash
 git clone git@bitbucket.org:digitalmeatdev/project-name.git
 cd project-name
-npm install
+npm install # ó yarn
 composer install --prefer-dist
 cp .env.example .env
 vim .env  
 npm run watch
-php artisan serve
 ```
 
 #### Production Environments
@@ -42,7 +32,7 @@ vim .env
 
 <a name="views"></a>
 ## Vistas del tema
-Las vistas del tema están localizadas en `htdocs/content/themes/meat-theme/resources/views`
+Las vistas del tema están localizadas en `htdocs/content/themes/freshwork-theme/resources/views`
 
 Esta carpeta está ordenada de la siguiente forma: 
 

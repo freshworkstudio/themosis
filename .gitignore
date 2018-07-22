@@ -7,8 +7,8 @@ mix-manifest.json
 
 ### Themes
 /htdocs/content/themes/*
-!/htdocs/content/themes/meat-theme
-/htdocs/content/themes/meat-theme/dist
+!/htdocs/content/themes/freshwork-theme
+/htdocs/content/themes/freshwork-theme/dist
 
 ### Plugins
 
