@@ -1,13 +1,12 @@
 {
   "name": "freshwork/themosis",
   "description": "The Themosis framework. A WordPress framework.",
-  "keywords": ["themosis", "framework", "WordPress"],
-  "license": "GPL-2.0+",
+  "keywords": ["themosis", "framework", "WordPress", "freshwork"],
   "authors": [
     {
       "name": "Gonzalo De Spirito",
       "email": "gonzalo@de-spirito.cl",
-      "homepage": "https://freshworkstudio.com/"
+      "homepage": "https://freshwork.cl/"
     },
     {
       "name": "Julien Lambé",
@@ -18,8 +17,8 @@
   "type": "project",
   "repositories":[
     {
-      "type": "composer",
-      "url": "https://wpackagist.org"
+      "type":"composer",
+      "url":"https://wpackagist.org"
     }
   ],
   "autoload": {
