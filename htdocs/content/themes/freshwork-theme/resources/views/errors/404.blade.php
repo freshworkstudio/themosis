@@ -19,7 +19,6 @@
         .error-404 {
             text-align: center;
             font-size: 60px;
-            lin
         }
     </style>
 

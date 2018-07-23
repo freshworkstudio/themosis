@@ -1,11 +1,9 @@
 @setup
-$site_name = 'meat';
+$site_name = 'freshwork';
 $ssh_user = 'forge';
 $server_ip = '159.203.184.X';
-$server_base_path = '/home/forge/' . $site_name . '.dmeat.cl';
-//$sync_folder =  '/storage/app/'; // Laravel | Based on the base path of the project
+$server_base_path = '/home/forge/' . $site_name . '.freshwork.cl';
 $sync_folder =  '/htdocs/content/uploads/'; // Themosis | Based on the base path of the project
-
 
 $ssh_connection = $ssh_user.'@'.$server_ip;
 @endsetup

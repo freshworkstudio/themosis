@@ -1,20 +1,20 @@
 <?php
 
 add_action('after_switch_theme', function() {
-	(new MeatInstaller)->install();
+	(new FreshworkInstaller)->install();
 });
 
 /**
- * Class MeatInstaller
+ * Class FreshworkInstaller
  */
-class MeatInstaller {
+class FreshworkInstaller {
 
     /**
      *
      */
     public function install() {
 		if ($this->isInstalled()) {
-            $this->addAdminMessage('Se encontró la variable MEAT_INSTALLED en el <code>.env</code> por lo que no se realizaron configuraciones adicionales', null, 'warning');
+            $this->addAdminMessage('Se encontró la variable FRESHWORK_INSTALLED en el <code>.env</code> por lo que no se realizaron configuraciones adicionales', null, 'warning');
 			return;
 		}
 		$this->deleteDemoPosts()
@@ -23,14 +23,14 @@ class MeatInstaller {
             ->addSaltsToEnv()
             ->activatePlugins()
             ->addInstalledFlagToEnv()
-            ->addAdminMessage('Tema MEAT instalado correctamente. Se configuró correctamente y se agregó flag MEAT_INSTALLED en archivo  <code>.env</code>');
+            ->addAdminMessage('Tema MEAT instalado correctamente. Se configuró correctamente y se agregó flag FRESHWORK_INSTALLED en archivo  <code>.env</code>');
 	}
 
     /**
      * @return array|false|string
      */
     public function isInstalled() {
-		return getenv('MEAT_INSTALLED');
+		return getenv('FRESHWORK_INSTALLED');
 	}
 
     /**
@@ -38,7 +38,10 @@ class MeatInstaller {
      */
     function addSaltsToEnv()
 	{
-	    $secret_keys = wp_remote_get('https://api.wordpress.org/secret-key/1.1/salt/');
+	    if (env('FRESHWORK_INSTALLED')) {
+	        return;
+        }
+ 	    $secret_keys = wp_remote_get('https://api.wordpress.org/secret-key/1.1/salt/');
 	    $secret_keys = explode("\n", wp_remote_retrieve_body($secret_keys));
 	    foreach ($secret_keys as $k => $v) {
 	        $secret_keys[$k] = substr($v, 28, 64);
@@ -72,7 +75,7 @@ class MeatInstaller {
      * @return $this
      */
     function addInstalledFlagToEnv() {
-		file_put_contents(ABSPATH . '../../.env', "\nMEAT_INSTALLED=1", FILE_APPEND);
+		file_put_contents(ABSPATH . '../../.env', "\nFRESHWORK_INSTALLED=true", FILE_APPEND);
 
         return $this;
 	}

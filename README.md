@@ -1,5 +1,5 @@
-# Meat Project
-by [Freshwork Studio](http://freshworkstudio.com/)
+# Freshwork Studio Website
+by [Freshwork Studio](http://freshwork.cl/)
 
 - [Instalación](#Installation)
 - [Vistas del tema](#views)
@@ -10,7 +10,7 @@ by [Freshwork Studio](http://freshworkstudio.com/)
 
 #### Development / Local Environment
 ```bash
-git clone git@bitbucket.org:digitalmeatdev/project-name.git
+git clone git@bitbucket.org:freshworkstudio/project-name.git
 cd project-name
 npm install # ó yarn
 composer install --prefer-dist
@@ -21,7 +21,7 @@ npm run watch
 
 #### Production Environments
 ```bash
-git clone git@bitbucket.org:digitalmeatdev/project-name.git
+git clone git@bitbucket.org:freshworkstudio/project-name.git
 cd project-name
 npm install
 composer install --prefer-dist --no-dev

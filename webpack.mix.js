@@ -12,7 +12,7 @@ let mix = require('laravel-mix');
  */
 
 let project_folder = path.basename( process.cwd() );
-let theme_assets_path = 'htdocs/content/themes/meat-theme/dist'
+let theme_assets_path = 'htdocs/content/themes/freshwork-theme/dist'
 
 mix
   .setPublicPath( theme_assets_path )
