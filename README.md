@@ -60,7 +60,7 @@ Vistas asociadas a páginas del sitio que no estén en ninguna de las categoría
 <a name="environments"></a>
 ## Environments
 #### Staging: 
-    URL: https://project-name.dmeat.cl
+    URL: https://project-name.freshwork.cl
     
 #### Producción:
     URL: https://project-name.cl
