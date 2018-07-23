@@ -40,7 +40,7 @@
     "meat/envoy-helper": "^0.1.2",
     "wpackagist-plugin/wp-sanitize-file-name-plus": "1.0.3",
     "wpackagist-plugin/wp-super-cache": "^1.4",
-    "wpackagist-plugin/wordpress-seo": "^5.5",
+    "wpackagist-plugin/wordpress-seo": "^7.8",
     "wpackagist-plugin/minify-html-markup": "^1.98"
   },
   "require-dev": {
